@@ -13,6 +13,6 @@ function addnewrestaurant() {
   const restaurantname = document.getElementById('enter-restaurant');
   const inputrestaurant = restaurantname.value;
   restaurantlist.push(inputrestaurant).value;
-  localStorage.setObj(restaurantlist, JSON.stringify(restaurantlist))
+  localStorage.setItem(restaurantlist, JSON.stringify(restaurantlist))
   console.log(restaurantlist);
 }
