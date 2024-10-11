@@ -34,13 +34,43 @@
 <header>
     <a href="login.html">Login</a>
     <a href="signup.html">Sign Up</a>
+    <ul>
+        <li><button id="friends-btn" class="btn">Friends</button></li>
+        <li><button id="ratings-btn" class="btn">Ratings</button></li>
+        <li><button id="new-locations-btn" class="btn">New Locations</button></li>
+        <li><button id="favorites-btn" class="btn">★</button></li>
+    </ul>
+    
 </header>
 <body>
     <h1>Welcome to the Main Page</h1>
-    <p>This is your main dashboard. You are logged in.</p>
+    <p style="text-align: center;">This is your main dashboard. You are logged in.</p>
+    <br />
+    <hr>
+
+    <div id="list1" class="dropdown-check-list" tabindex="100">
+        <span class="anchor">Select Fruits</span>
+        <ul class="items">
+          <li><input type="checkbox" />Buffalo Wild Wings</li>
+          <li><input type="checkbox" />Chick-Fil-A</li>
+          <li><input type="checkbox" />Chillers Bar and Grill</li>
+          <li><input type="checkbox" />Friday's</li>
+          <li><input type="checkbox" />PF Chang's</li>
+          <li><input type="checkbox" />Red Lobster</li>
+          <li><input type="checkbox" />Ruth Chris</li>
+          <li><input type="checkbox" />Thai House</li>
+        </ul>
+      </div>
+
     <script src="./assets/javascript/javascript.js"></script>
+    <seciton>
+        <p>Who's Hungry?</p>
+        <div class="container">
+            <input type="text" id="enter-restaurant" placeholder="Enter Restaurant">
+        </div>
+    </seciton>
 </body>
 <footer>
-
+<button id="profile-btn" class="btn">Your Profile</button>
 </footer>
 </html>
