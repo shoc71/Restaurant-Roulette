@@ -7,3 +7,12 @@ checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
   else
     checkList.classList.add('visible');
 }
+let restaurantlist = []
+
+function addnewrestaurant() {
+  const restaurantname = document.getElementById('enter-restaurant');
+  const inputrestaurant = restaurantname.value;
+  restaurantlist.push(inputrestaurant).value;
+  localStorage.setItem(restaurantlist, JSON.stringify(restaurantlist))
+  console.log(restaurantlist);
+}
