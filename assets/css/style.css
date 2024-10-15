@@ -33,6 +33,18 @@ h1 {
     font-size: 12px;
     border-radius: 4px;
 }
+#myTextbox {
+  display: none; /* Hides the textarea */
+}
+#myTextboxLabel {
+  display: none; /* Hides the label */
+}
+/*.hide{
+display:none;
+}
+.show{
+display:block;
+}*/
 
 .my-button:hover {
     background-color: darkblue;

@@ -16,3 +16,23 @@ function addnewrestaurant() {
   localStorage.setItem(restaurantlist, JSON.stringify(restaurantlist))
   console.log(restaurantlist);
 }
+function clickMe(){
+  const click = document.getElementById("myTextbox");
+
+  if(click.style.display === "none"){
+    click.style.display = "block";
+  }
+  else{
+    click.style.display = "none";
+  }
+}
+function clickMeComment(){
+  const click = document.getElementById("myTextboxLable");
+
+  if(click.style.display === "none"){
+    click.style.display = "block";
+  }
+  else{
+    click.style.display = "none";
+  }
+}
