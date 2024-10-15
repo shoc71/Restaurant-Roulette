@@ -17,9 +17,7 @@ function addnewrestaurant() {
   console.log(restaurantlist);
 }
 
-document.getElementById('spinnerIsReady').addEventListener('click', () => {
-  window.location.href = 'spinner.html'; 
-});
+
 
 const restaurantInput = document.getElementById('enter-restaurant');
 const addRestaurantBtn = document.getElementById('add-restaurant-btn');
