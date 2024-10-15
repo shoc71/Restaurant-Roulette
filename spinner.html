@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spin the Wheel</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+
+  <body class="bg-light">
+    <header class="mb-5">
+        <div class="container">
+            <a href="index.html" class="btn btn-outline-secondary mt-3">Back</a>
+        </div>
+    </header>
+    <div class="wrapper">
+      <div class="container">
+        <!-- Canvas for the wheel -->
+        <canvas id="wheel"></canvas>
+        <!-- Spin button -->
+        <button id="spin-btn">Spin</button>
+        <!-- Confetti animation -->
+        <div id="confetti"></div>
+      </div>
+      <!-- Display the result -->
+      <div id="final-value">
+        <p>Click on the spin button to start!</p>
+      </div>
+    </div>
+
+    <!-- Confetti JS -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- Chart.js Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"></script>
+    <!-- Script for spinning wheel -->
+    <script src="./assets/javascript/wheel-script.js"></script>
+  </body>
+</html>
