@@ -7,9 +7,9 @@ checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
   else
     checkList.classList.add('visible');
 }
-let restaurantlist = []
 
 function addnewrestaurant() {
+  let restaurantlist = []
   const restaurantname = document.getElementById('enter-restaurant');
   const inputrestaurant = restaurantname.value;
   restaurantlist.push(inputrestaurant).value;
