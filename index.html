@@ -40,22 +40,8 @@
                                 <ul id="restaurant-list"></ul>          
                             </div>
                             <button class="btn btn-primary mt-3" id="spinnerIsReady">Ready to Spin?</button>
-                            <button class="btn btn-primary mt-3" id="randomButton">Random Restaurant</button>
+                            <button class="btn btn-primary mt-3" id="randomButton" onclick="">Random Restaurant</button>
                             <p id="output"></p>
-                            <script> 
-                                const inputList = ["1", "2", "3", "4"];
-                        
-                                const button = document.getElementById("randomButton");
-                                const output = document.getElementById("output");
-                            
-                                button.addEventListener("click", function() {
-                                const randomIndex = Math.floor(Math.random() * inputList.length);
-                                output.textContent = inputList[randomIndex];
-                                });
-                              </script>
-                            <!-- <div class="container mt-4"> -->
-                                <!-- <div class="row" id="restaurant-list"></div> -->
-                            <!-- </div> -->
                         </div>
                     </div>
                 </div>
@@ -123,6 +109,19 @@
                 alert("Please add at least one restaurant before spinning.");
             }
         });
+
+        document.getElementById('randomButton').addEventListener('click', () => {
+            const button = document.getElementById("randomButton");
+            const output = document.getElementById("output");
+            const restaurant = restaurantList.children;
+        
+            if (restaurants.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * restaurants.length);
+                    output.textContent = `Randomly selected: ${restaurants[randomIndex]}`;
+                } else {
+                    output.textContent = "No restaurants available to select.";
+                };
+        })
     </script>
     <script src="./assets/javascript/javascript.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
