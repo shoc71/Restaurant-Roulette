@@ -42,15 +42,15 @@
                             <button class="btn btn-primary mt-3" id="spinnerIsReady">Ready to Spin?</button>
                             <button class="btn btn-primary mt-3" id="randomButton">Random Restaurant</button>
                             <p id="output"></p>
-                            <script>
+                            <script> 
                                 const inputList = ["1", "2", "3", "4"];
-                            
+                        
                                 const button = document.getElementById("randomButton");
                                 const output = document.getElementById("output");
                             
                                 button.addEventListener("click", function() {
-                                  const randomIndex = Math.floor(Math.random() * inputList.length);
-                                  output.textContent = inputList[randomIndex];
+                                const randomIndex = Math.floor(Math.random() * inputList.length);
+                                output.textContent = inputList[randomIndex];
                                 });
                               </script>
                             <!-- <div class="container mt-4"> -->
