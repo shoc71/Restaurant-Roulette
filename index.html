@@ -97,20 +97,30 @@
     </footer>
     
     <script>
-        document.getElementById('spinnerIsReady').addEventListener('click', () => {
-        window.location.href = 'spinner.html'; 
-        });
         const restaurantInput = document.getElementById('enter-restaurant');
         const addRestaurantBtn = document.getElementById('add-restaurant-btn');
         const restaurantList = document.getElementById('restaurant-list');
-
+        const restaurants = [];  // Array to store restaurants
+    
+        // Add restaurant to the list
         addRestaurantBtn.addEventListener('click', function() {
             const restaurantName = restaurantInput.value.trim();
             if (restaurantName) {
                 const li = document.createElement('li');
                 li.textContent = restaurantName;
                 restaurantList.appendChild(li);
+                restaurants.push(restaurantName);  // Add to array
                 restaurantInput.value = '';
+            }
+        });
+    
+        // Store restaurants in localStorage and navigate to spinner.html
+        document.getElementById('spinnerIsReady').addEventListener('click', () => {
+            if (restaurants.length > 0) {
+                localStorage.setItem('selectedChoices', JSON.stringify(restaurants));
+                window.location.href = 'spinner.html'; 
+            } else {
+                alert("Please add at least one restaurant before spinning.");
             }
         });
     </script>
