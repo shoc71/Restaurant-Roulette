@@ -43,10 +43,10 @@ h1 {
   width: 90%;
   max-width: 34.37em;
   max-height: 90vh;
-  background-color: #ffffff;
+  background-color: #6800B5;
   position: absolute;
   transform: translate(-50%, -50%);
-  top: 50%;
+  top: 85%;
   left: 50%;
   padding: 3em;
   border-radius: 1em;
@@ -158,4 +158,14 @@ img {
   img {
     right: -5%;
   }
+}
+.Back {
+  background-color: #4b0082;
+  border: none;
+}
+.Entire {
+  background-color: #A43BF7;
+}
+.backBtn{
+  color: white
 }
