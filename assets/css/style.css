@@ -178,3 +178,8 @@ img {
 .rrBack{
   text-align: left;
 }
+.logo{
+  position: absolute;
+  left: 50px;
+  bottom: 10px;
+}
