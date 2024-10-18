@@ -35,18 +35,16 @@
                             <p class="h3">Who's Hungry!!</p>
                             <div class="container">
                                 <input type="text" id="enter-restaurant" class="form-control form-control-lg" placeholder="Enter Restaurant">
-                                <button class="btn mt-3" id="add-restaurant-btn" style="background-color: #a43bf7;">Add Restaurant</button>
+                                <button class="btn mt-3" id="add-restaurant-btn" onclick="addnewrestaurant()" style="background-color: #a43bf7;">Add Restaurant</button>
                                 <ul id="restaurant-list"></ul>          
                             </div>
-                            <button class="btn mt-3" id="spinnerIsReady" style="background-color: #a43bf7;">Ready to Spin?</button>
-                            <!-- <div class="container mt-4"> -->
-                                <!-- <div class="row" id="restaurant-list"></div> -->
-                            <!-- </div> -->
+                            <button class="btn btn-primary mt-3" id="spinnerIsReady">Ready to Spin?</button>
+                            <button class="btn btn-primary mt-3" id="randomButton" onclick="">Random Restaurant</button>
+                            <p id="output"></p>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="p-3 text-right" style="flex: 0 0 10%;">
                 <div class="spinner-border" role="status">
                     
@@ -56,13 +54,10 @@
         </div>
     </main>
     
-    <footer class="container-fluid text-white mt-5 py-4" style="background-color: #4b0082;">
-        <div class="footer">
-          <p>Footer</p>
-        </div>>
+    <footer class="container-fluid bg-dark text-white mt-5 py-4 fixed-bottom" style="background-color: #4b0082;">
         <div class="row">
 
-            <div class="col-md-4 text-center text-md-left mb-3 mb-md-0">
+            <div class="col-md-3 text-center text-md-left mb-3 mb-md-0">
                 <img src="https://via.placeholder.com/100" alt="Logo" class="img-fluid mb-2">
                 <p class="small">© 2024 Company Name. All rights reserved.</p>
             </div>
@@ -76,20 +71,65 @@
                 </ul>
             </div>
     
-            <div class="col-md-4 text-center text-md-left">
+            <div class="col-md-5 text-center text-md-left">
                 <h5>Follow Us</h5>
                 <a href="#" class="text-white">Facebook</a> | 
                 <a href="#" class="text-white">Twitter</a> | 
                 <a href="#" class="text-white">Instagram</a>
+            <hr>
+                <h6>Development Team</h6>
+                <ul class="list-unstyled">
+                    <li>Rosemarie Lupi: |Slack: Rosemarie| |Github: <a href="https://github.com/RML-png">RML-png</a>|</li>
+                    <li>Mickey Darty: |Slack: Mickey Darty| |Github: <a href="https://github.com/TilesTwenty">TilesTwenty</a>|</li>
+                    <li>Courtney Ponder: |Slack: Courtney Ponder| |Github: <a href="https://github.com/CourtneyPonder">CourtneyPonder</a>|</li>
+                    <li>Rosser Williams: |Slack: Rosser Williams| |Github: <a href="https://github.com/rosserw">rosserw</a>|</li>
+                    <li>Sonu Singh: |Slack: Sonu Singh| |Github: <a href="https://github.com/shoc71">shoc71</a>|</li>
+                </ul>
             </div>
 
         </div>
     </footer>
     
     <script>
-        document.getElementById('spinnerIsReady').addEventListener('click', () => {
-        window.location.href = 'spinner.html'; 
+        const restaurantInput = document.getElementById('enter-restaurant');
+        const addRestaurantBtn = document.getElementById('add-restaurant-btn');
+        const restaurantList = document.getElementById('restaurant-list');
+        const restaurants = [];  // Array to store restaurants
+    
+        // Add restaurant to the list
+        addRestaurantBtn.addEventListener('click', function() {
+            const restaurantName = restaurantInput.value.trim();
+            if (restaurantName) {
+                const li = document.createElement('li');
+                li.textContent = restaurantName;
+                restaurantList.appendChild(li);
+                restaurants.push(restaurantName);  // Add to array
+                restaurantInput.value = '';
+            }
         });
+    
+        // Store restaurants in localStorage and navigate to spinner.html
+        document.getElementById('spinnerIsReady').addEventListener('click', () => {
+            if (restaurants.length > 0) {
+                localStorage.setItem('selectedChoices', JSON.stringify(restaurants));
+                window.location.href = 'spinner.html'; 
+            } else {
+                alert("Please add at least one restaurant before spinning.");
+            }
+        });
+
+        document.getElementById('randomButton').addEventListener('click', () => {
+            const button = document.getElementById("randomButton");
+            const output = document.getElementById("output");
+            const restaurant = restaurantList.children;
+        
+            if (restaurants.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * restaurants.length);
+                    output.textContent = `Randomly selected: ${restaurants[randomIndex]}`;
+                } else {
+                    output.textContent = "No restaurants available to select.";
+                };
+        })
     </script>
     <script src="./assets/javascript/javascript.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

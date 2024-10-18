@@ -7,9 +7,9 @@ checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
   else
     checkList.classList.add('visible');
 }
-let restaurantlist = []
 
 function addnewrestaurant() {
+  let restaurantlist = []
   const restaurantname = document.getElementById('enter-restaurant');
   const inputrestaurant = restaurantname.value;
   restaurantlist.push(inputrestaurant).value;
@@ -17,20 +17,3 @@ function addnewrestaurant() {
   console.log(restaurantlist);
 }
 
-
-
-const restaurantInput = document.getElementById('enter-restaurant');
-const addRestaurantBtn = document.getElementById('add-restaurant-btn');
-const restaurantList = document.getElementById('restaurant-list');
-
-addRestaurantBtn.addEventListener('click', function() {
-  const restaurantName = restaurantInput.value.trim(); 
-  if (restaurantName) { 
-      const li = document.createElement('li');
-      li.textContent = restaurantName;
-      restaurantList.appendChild(li);
-      restaurantInput.value = '';
-  }
-});
-
-console.log(restaurantList)

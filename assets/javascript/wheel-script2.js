@@ -3,8 +3,8 @@ const wheel = document.getElementById("wheel");
 const spinBtn = document.getElementById("spin-btn");
 const finalValue = document.getElementById("final-value");
 
-// Retrieve selected restaurant choices from localStorage
-let selectedChoices = JSON.parse(localStorage.getItem('selectedChoices')) || ["Restaurant 1", "Restaurant 2", "Restaurant 3"];
+// Retrieve selected choices from localStorage
+let selectedChoices = JSON.parse(localStorage.getItem('selectedChoices')) || 6;
 
 // Variables for dynamic data
 let data = [];
@@ -17,16 +17,16 @@ function generateWheelData(choices) {
   pieColors = [];
   rotationValues = [];
   
-  let degreePerChoice = 360 / choices.length;
+  let degreePerChoice = 360 / choices;
   let colorPalette = ["#8b35bc", "#b163da", "#ff6666", "#66b3ff", "#99ff99", "#ffcc66", "#ffb366", "#66ff66", "#ff9999", "#66ffcc"];
   
-  for (let i = 0; i < choices.length; i++) {
+  for (let i = 0; i < choices; i++) {
     data.push(16); // Equal size for all segments
     pieColors.push(colorPalette[i % colorPalette.length]); // Rotate through colors
     
     let minDegree = i * degreePerChoice;
     let maxDegree = (i + 1) * degreePerChoice - 1;
-    rotationValues.push({ minDegree, maxDegree, value: choices[i] });
+    rotationValues.push({ minDegree, maxDegree, value: i + 1 });
   }
 }
 
@@ -38,7 +38,7 @@ let myChart = new Chart(wheel, {
   plugins: [ChartDataLabels],
   type: "pie",
   data: {
-    labels: selectedChoices,  // Use restaurant names as labels
+    labels: Array.from({length: selectedChoices}, (_, i) => `Option ${i + 1}`), // Dynamic labels
     datasets: [{
       backgroundColor: pieColors,
       data: data,
@@ -63,7 +63,7 @@ let myChart = new Chart(wheel, {
 const valueGenerator = (angleValue) => {
   for (let i of rotationValues) {
     if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
-      finalValue.innerHTML = `<p>${i.value}</p>`;
+      finalValue.innerHTML = `<p>Option: ${i.value}</p>`;
       spinBtn.disabled = false;
       confettiExplosion(); // Trigger confetti when a value is found
       break;
