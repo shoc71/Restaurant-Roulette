@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Roulette</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-        .grey_card{
-            background-color: grey;
-        }
-    </style>
+    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
 </head>
 <body>
     <header class="container-fluid purple text-white" style="background-color: #4b0082;">
@@ -35,8 +31,9 @@
             </div>
 
             <div class="col-md-9 text-center">
-                <h3>Your Favorite Restaurant</h3>
-                <p class="h3">Who's Hungry!!</p>
+                <span style='font-size:50px;'> &#127879 &#127869 &#127857 &#129377 &#127829 &#127828 &#127831 &#129385 &#127843 &#127869 &#127879</span>
+                <h3>Your Favorite Restaurant Selector</h3>
+                <p class="h5">Who's Hungry!!</p>
 
                 <!-- Input and Buttons -->
                 <div class="container">
@@ -98,99 +95,6 @@
         </div>
     </footer>
     
-    <script>
-        const restaurantInput = document.getElementById('enter-restaurant');
-        const addRestaurantBtn = document.getElementById('add-restaurant-btn');
-        const restaurantList = document.getElementById('restaurant-list');
-        const favouritesList = document.getElementById('favourites-list');
-        let restaurants = JSON.parse(localStorage.getItem('restaurants')) || []; // Load restaurants from localStorage
-        let favourites = JSON.parse(localStorage.getItem('favourites')) || []; // Load favourites from localStorage
-
-        // Function to render the restaurant list
-        function renderRestaurants() {
-            restaurantList.innerHTML = '';
-            restaurants.forEach((restaurant, index) => {
-                const card = document.createElement('div');
-                card.classList.add('card', 'col-md-12', 'mb-3', 'grey-card');
-                card.innerHTML = `
-                    <div class="card-body">
-                        <h5 class="card-title">${restaurant}</h5>
-                        <button class="btn btn-warning btn-sm mr-2" onclick="favouriteRestaurant(${index})">Favourite</button>
-                        <button class="btn btn-danger btn-sm" onclick="deleteRestaurant(${index})">Delete</button>
-                    </div>
-                `;
-                restaurantList.appendChild(card);
-            });
-        }
-
-        // Function to render the favourites list
-        function renderFavourites() {
-            favouritesList.innerHTML = '';
-            favourites.forEach((restaurant, index) => {
-                const card = document.createElement('div');
-                card.classList.add('card', 'col-md-12', 'mb-3', 'grey-card');
-                card.innerHTML = `
-                    <div class="card-body">
-                        <h5 class="card-title">${restaurant}</h5>
-                        <button class="btn btn-danger btn-sm" onclick="removeFavourite(${index})">Remove</button>
-                    </div>
-                `;
-                favouritesList.appendChild(card);
-            });
-        }
-
-        // Add restaurant to the list
-        addRestaurantBtn.addEventListener('click', function() {
-            const restaurantName = restaurantInput.value.trim();
-            if (restaurantName && !restaurants.includes(restaurantName)) { // Avoid duplicates
-                restaurants.push(restaurantName);
-                localStorage.setItem('restaurants', JSON.stringify(restaurants)); // Save restaurants to localStorage
-                restaurantInput.value = '';
-                renderRestaurants(); // Re-render the restaurant list
-            }
-        });
-
-        // Favourite a restaurant
-        function favouriteRestaurant(index) {
-            const restaurant = restaurants[index];
-            if (!favourites.includes(restaurant)) {
-                favourites.push(restaurant);
-                localStorage.setItem('favourites', JSON.stringify(favourites)); // Save favourites to localStorage
-                renderFavourites(); // Re-render favourites
-            }
-        }
-
-        // Delete a restaurant from the list
-        function deleteRestaurant(index) {
-            restaurants.splice(index, 1);
-            localStorage.setItem('restaurants', JSON.stringify(restaurants)); // Update localStorage
-            renderRestaurants(); // Re-render the restaurant list
-        }
-
-        // Remove a restaurant from favourites
-        function removeFavourite(index) {
-            favourites.splice(index, 1);
-            localStorage.setItem('favourites', JSON.stringify(favourites)); // Update localStorage
-            renderFavourites(); // Re-render the favourites list
-        }
-
-        // Random restaurant selection
-        document.getElementById('randomButton').addEventListener('click', () => {
-            const output = document.getElementById("output");
-            if (restaurants.length > 0) {
-                const randomIndex = Math.floor(Math.random() * restaurants.length);
-                output.textContent = `Randomly selected: ${restaurants[randomIndex]}`;
-            } else {
-                output.textContent = "No restaurants available to select.";
-            }
-        });
-
-        // Initialize the app
-        document.addEventListener('DOMContentLoaded', function() {
-            renderRestaurants();
-            renderFavourites();
-        });
-    </script>
     <script src="./assets/javascript/javascript.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
