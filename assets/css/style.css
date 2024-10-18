@@ -6,8 +6,11 @@ Insert your related code or bootstrap stuff here below
 body {
   font-family: Arial, sans-serif;
 }
+.purple{
+  background-color: #4b0082;
+}
 header {
-  background-color: #f8f8f8;
+  background-color: #bfafca;
   padding: 10px;
   text-align: right;
   border-bottom: 1px solid #ccc;
@@ -21,12 +24,15 @@ header a {
 header a:hover {
   color: #4CAF50;
 }
+nav a {
+color:#ffffff;
+}
 h1 {
   text-align: center;
   margin-top: 50px;
 }
 .my-button {
-  background-color: blue;
+  background-color: #a43bf7;
   color: white;
   padding: 5px 10px;
   border: none;
@@ -36,7 +42,7 @@ h1 {
 }
 
 .my-button:hover {
-  background-color: darkblue;
+  background-color: #6800b5;
 }
 
 .wrapper {
