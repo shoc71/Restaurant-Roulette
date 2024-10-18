@@ -54,6 +54,9 @@ let myChart = new Chart(wheel, {
         color: "#ffffff",
         formatter: (_, context) => context.chart.data.labels[context.dataIndex],
         font: { size: 24 },
+        // anchor: 'end',
+        // align: 'start',
+        // offset: 65, 
       },
     },
   },
@@ -61,8 +64,9 @@ let myChart = new Chart(wheel, {
 
 // Value generator
 const valueGenerator = (angleValue) => {
+  const adjustedAngle = (angleValue + 90) % 360; // Adjust by 90 degrees to make the winner appear at 3 o'clock
   for (let i of rotationValues) {
-    if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
+    if (adjustedAngle >= i.minDegree && adjustedAngle <= i.maxDegree) {
       finalValue.innerHTML = `<p>${i.value}</p>`;
       spinBtn.disabled = false;
       confettiExplosion(); // Trigger confetti when a value is found
@@ -74,8 +78,8 @@ const valueGenerator = (angleValue) => {
 // Confetti explosion when result is displayed
 function confettiExplosion() {
   confetti({
-    particleCount: 100,
-    spread: 70,
+    particleCount: 250,
+    spread: 170,
     origin: { y: 0.6 }
   });
 }
