@@ -1,3 +1,29 @@
 /* 
 Insert your related code or bootstrap stuff here below
 */
+.button{
+  background-color: #a43bf7;
+  color: white;
+}
+#favourites-list{
+  background-color: #D3D3D3; 
+  padding: 15px; 
+  border-radius: 10px;"
+}
+.purple{
+  background-color: #4b0082;
+}
+span{
+  font-size:50px;
+}
+.recomended-list{
+  background-color: #D3D3D3; 
+  padding: 15px; 
+  border-radius: 10px;
+}
+footer{
+  background-color: #4b0082;
+}
+body{
+  background-image: linear-gradient(#E6E6FA, #8711e1);
+}

@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body> <!-- we need an image background of purple here-->
-    <header class="container-fluid purple text-white" style="background-color: #4b0082;">
+    <header class="container-fluid purple text-white">
         <div class="d-flex justify-content-between align-items-center">
             <h1 class="">Restaurant Roulette</h1>
             <nav>
-                <a href="#" class="btn" role="button" style="background-color: #a43bf7;">Friends</a>
-                <a href="#" class="btn" role="button" style="background-color: #a43bf7;">Ratings</a>
-                <a href="#" class="btn" role="button" style="background-color: #a43bf7;">New Locations</a>
-                <a href="#" class="btn" role="button" style="background-color: #a43bf7;">Favourites ★</a>
+                <a href="#" class="btn button" role="button">Friends</a>
+                <a href="#" class="btn button" role="button">Ratings</a>
+                <a href="#" class="btn button" role="button">New Locations</a>
+                <a href="#" class="btn button" role="button">Favourites ★</a>
                 
                 <!-- Buttons for Login and Signup -->
                 <a href="login.html" class="btn btn-outline-light">Login</a>
@@ -31,19 +31,19 @@
             <!-- Favourites Section -->
             <div class="col-md-3">
                 <h3 class="text-center"><ins>Favourites</ins></h3>
-                <div id="favourites-list" class="row" style="background-color: #D3D3D3; padding: 15px; border-radius: 10px;"></div>
+                <div id="favourites-list" class="row"></div>
             </div>
 
             <!-- Main Content Section -->
             <div class="col-md-6 d-flex flex-column align-items-center">
-                <span style='font-size:50px;'> &#127879 &#127869 &#127857 &#129377 &#127829 &#127828 &#127831 &#129385 &#127843 &#127869 &#127879</span>
+                <span class = "span"> &#127879 &#127869 &#127857 &#129377 &#127829 &#127828 &#127831 &#129385 &#127843 &#127869 &#127879</span>
                 <h3>Your Favorite Restaurant Selector</h3>
                 <p class="h5">Who's Hungry!!</p>
 
                 <!-- Input and Buttons -->
                 <div class="container">
                     <input type="text" id="enter-restaurant" class="form-control form-control-lg" placeholder="Enter Restaurant">
-                    <button class="btn mt-3 col-md-12" id="add-restaurant-btn" style="background-color: #a43bf7;">Add Restaurant</button>
+                    <button class="btn mt-3 col-md-12 button" id="add-restaurant-btn">Add Restaurant</button>
                 </div>
 
                 <!-- Spinner Image that links to spinner -->
@@ -65,14 +65,14 @@
             <!-- Recommended Section -->
             <div class="col-md-3">
                 <h3 class="text-center"><ins>Recommended</ins></h3>
-                <div id="recommended-list" class="row" style="background-color: #D3D3D3; padding: 15px; border-radius: 10px;">
+                <div id="recommended-list" class="row recommended-list">
                 </div>
             </div>
 
         </div>
     </main>
     
-    <footer class="container-fluid text-white mt-5 py-4 " style="background-color: #4b0082;">
+    <footer class="container-fluid text-white mt-5 py-4 ">
         <div class="row">
             <div class="col-md-3 text-center text-md-left mb-3 mb-md-0">
                 <img src="./assets/images/logospinnerrescaled.png" alt="Logo" class="img-fluid mb-2">
