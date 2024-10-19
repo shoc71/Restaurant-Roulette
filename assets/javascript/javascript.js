@@ -3,6 +3,7 @@ const restaurantInput = document.getElementById('enter-restaurant');
 const addRestaurantBtn = document.getElementById('add-restaurant-btn');
 const restaurantList = document.getElementById('restaurant-list');
 const favouritesList = document.getElementById('favourites-list');
+const spinnerLink = document.getElementById('spinnerLink');
 let restaurants = JSON.parse(localStorage.getItem('restaurants')) || []; // Load restaurants from localStorage
 let favourites = JSON.parse(localStorage.getItem('favourites')) || []; // Load favourites from localStorage
 let currentIndex = 0; // To keep track of the current recommendation
@@ -35,13 +36,23 @@ const recommended = [
     'Alo'
 ];
 
+spinnerLink.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    if (restaurants.length > 1) {
+        window.location.href = 'spinner.html';
+    } else {
+        alert('Please add at least two restaurant before spinning.');
+    }
+});
+
 // Store restaurants in localStorage and navigate to spinner.html
 document.getElementById('spinnerIsReady').addEventListener('click', () => {
-  if (restaurants.length > 0) {
+  if (restaurants.length > 1) {
       localStorage.setItem('selectedChoices', JSON.stringify(restaurants));
       window.location.href = 'spinner.html'; 
   } else {
-      alert("Please add at least one restaurant before spinning.");
+      alert("Please add at least two restaurant before spinning.");
   }
 });
 
@@ -55,7 +66,7 @@ function renderRestaurants() {
             <div class="card-body">
                 <h5 class="card-title">${restaurant}</h5>
                 <button class="btn btn-warning btn-sm mr-2" onclick="favouriteRestaurant(${index})">Favourite</button>
-                <button class="btn btn-danger btn-sm" onclick="deleteRestaurant(${index})">Delete</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteRestaurant(${index})">Remove</button>
             </div>
         `;
         restaurantList.appendChild(card);
@@ -84,11 +95,11 @@ function renderFavourites() {
 // Add restaurant to the list
 addRestaurantBtn.addEventListener('click', function() {
     const restaurantName = restaurantInput.value.trim();
-    if (restaurantName && !restaurants.includes(restaurantName)) { // Avoid duplicates
+    if (restaurantName && !restaurants.includes(restaurantName)) { 
         restaurants.push(restaurantName);
-        localStorage.setItem('restaurants', JSON.stringify(restaurants)); // Save restaurants to localStorage
+        localStorage.setItem('restaurants', JSON.stringify(restaurants)); 
         restaurantInput.value = '';
-        renderRestaurants(); // Re-render the restaurant list
+        renderRestaurants(); 
     }
 });
 
@@ -97,20 +108,35 @@ function favouriteRestaurant(index) {
     const restaurant = restaurants[index];
     if (!favourites.includes(restaurant)) {
         favourites.push(restaurant);
-        localStorage.setItem('favourites', JSON.stringify(favourites)); // Save favourites to localStorage
-        renderFavourites(); // Re-render favourites
+        localStorage.setItem('favourites', JSON.stringify(favourites)); 
+        renderFavourites(); 
     }
 };
 
 // Add back a favourite to the restaurant list
 function addBackToRestaurantList(index) {
   const restaurant = favourites[index];
-  if (!restaurants.includes(restaurant)) { // Avoid duplicates
+  if (!restaurants.includes(restaurant)) { 
       restaurants.push(restaurant);
-      localStorage.setItem('restaurants', JSON.stringify(restaurants)); // Update localStorage
-      renderRestaurants(); // Re-render the restaurant list
+      localStorage.setItem('restaurants', JSON.stringify(restaurants)); 
+      renderRestaurants(); 
   }
 };
+
+function addToFavourites(restaurant) {
+    if (!favourites.includes(restaurant)) {
+        favourites.push(restaurant);
+        saveFavorites();  
+        renderFavourites();  
+    }
+}
+
+// Remove a restaurant from favourites
+function removeFavourite(index) {
+    favourites.splice(index, 1);
+    saveFavorites();  
+    renderFavourites();  
+}
 
 // Delete a restaurant from the list
 function deleteRestaurant(index) {
