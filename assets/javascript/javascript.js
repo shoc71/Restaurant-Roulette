@@ -41,6 +41,7 @@ const recommended = [
     'Qdoba'
 ];
 
+// Making sure there are options when clicking image
 spinnerLink.addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -128,6 +129,7 @@ function addBackToRestaurantList(index) {
   }
 };
 
+// Add a restaurant to the favourite list
 function addToFavourites(restaurant) {
     if (!favourites.includes(restaurant)) {
         favourites.push(restaurant);
