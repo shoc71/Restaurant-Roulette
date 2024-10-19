@@ -214,6 +214,25 @@ function renderRecommended() {
     currentIndex = (currentIndex + 5) % recommended.length;
 }
 
+// Add event listener for Enter key in the input field
+restaurantInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') { 
+        event.preventDefault();  // Prevent default action like form submission
+        addRestaurant();         
+    }
+});
+
+// Add restaurant to the list (separate this function for reuse)
+function addRestaurant() {
+    const restaurantName = restaurantInput.value.trim();
+    if (restaurantName && !restaurants.includes(restaurantName)) { 
+        restaurants.push(restaurantName);
+        localStorage.setItem('restaurants', JSON.stringify(restaurants)); 
+        restaurantInput.value = '';  
+        renderRestaurants();         
+    }
+}
+
 // Function to continuously rotate recommended options
 function startRotatingRecommendations() {
     renderRecommended(); // Show the first recommended option
