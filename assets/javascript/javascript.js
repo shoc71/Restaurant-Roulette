@@ -33,7 +33,12 @@ const recommended = [
     'Indian Sweet Master',
     'Restaurant Pearl Morissette',
     'Mon Lapin',
-    'Alo'
+    'Alo',
+    'Portico Restaurant and Bar',
+    'New York Deli',
+    'Galaxy Diner',
+    'Sensi',
+    'Qdoba'
 ];
 
 spinnerLink.addEventListener('click', function(event) {
