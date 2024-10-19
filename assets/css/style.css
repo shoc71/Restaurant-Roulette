@@ -16,7 +16,7 @@ Insert your related code or bootstrap stuff here below
 span{
   font-size:50px;
 }
-.recommended-list{
+#recommended-list{
   background-color: #D3D3D3; 
   padding: 15px; 
   border-radius: 10px;
