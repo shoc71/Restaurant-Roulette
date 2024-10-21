@@ -4,6 +4,7 @@ const addRestaurantBtn = document.getElementById('add-restaurant-btn');
 const restaurantList = document.getElementById('restaurant-list');
 const favouritesList = document.getElementById('favourites-list');
 const spinnerLink = document.getElementById('spinnerLink');
+const fullJSON = localStorage.getItem('restaurantList');
 let restaurants = JSON.parse(localStorage.getItem('restaurants')) || []; // Load restaurants from localStorage
 let favourites = JSON.parse(localStorage.getItem('favourites')) || []; // Load favourites from localStorage
 let currentIndex = 0; // To keep track of the current recommendation
@@ -251,4 +252,5 @@ document.addEventListener('DOMContentLoaded', function() {
     renderFavourites();
     startRotatingRecommendations();
     console.log(restaurantList);
+    console.log(fullJSON)
 });
