@@ -250,4 +250,5 @@ document.addEventListener('DOMContentLoaded', function() {
     renderRestaurants();
     renderFavourites();
     startRotatingRecommendations();
+    console.log(restaurantList);
 });
