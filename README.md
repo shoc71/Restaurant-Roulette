@@ -4,8 +4,8 @@ Our project is a randomized restaurant decision maker. Have you ever just been t
 
 ## Navigation
 
-- [User Story](https://github.com/shoc71/Restaurant-Roulette/User-Story/README 'User Story')
-- Acceptance Criteria
+- [User Story](https://github.com/shoc71/Restaurant-Roulette/ 'User Story')
+- [Acceptance Criteria](https://github.com/shoc71/Restaurant-Roulette/ 'Acceptance Criteria')
 - Features
 - Description about Project
 - Technologies Used
