@@ -72,7 +72,7 @@ As a team we faced the challenge of everyone using the repository "smoothly", we
    * Mickey Darty | Github : [TilesTwenty]
    * Courtney Ponder | Github : [Github CourtneyPonder]
    * Rosser Williams | Github : [rosserw]
-   * Sonu Singh | Github : [shoc71]
+   * Github : [shoc71]
 
 ### Installion
 -  This [video]([url](https://www.youtube.com/watch?v=YXXp_ht4pwQ)) helps you install both git and GitHub Repositories
